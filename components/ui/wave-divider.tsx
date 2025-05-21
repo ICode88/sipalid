@@ -11,17 +11,17 @@ interface WaveDividerProps {
 
 export function WaveDivider({
   position = "bottom",
-  color = "fill-white",
-  height = 40,
+  color = "fill-white dark:fill-background",
+  height = 80,
   className,
 }: WaveDividerProps) {
   return (
     <div
-      className={`absolute ${position === "top" ? "top-0" : "bottom-0"} left-0 w-full overflow-hidden leading-none ${className}`}
+      className={`absolute ${position === "top" ? "top-0" : "bottom-0"} left-0 w-full overflow-hidden leading-none bg-transparent ${className}`}
       style={{ height: `${height}px` }}
     >
       <motion.svg
-        className={`relative block w-full h-full ${position === "top" ? "rotate-180" : ""}`}
+        className={`relative block w-full h-full ${position === "bottom" ? "rotate-180" : ""}`}
         viewBox="0 0 1200 120"
         preserveAspectRatio="none"
         initial={{ opacity: 0 }}

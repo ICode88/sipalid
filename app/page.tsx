@@ -13,6 +13,7 @@ import ServiceCard from "@/components/home/service-card";
 import NewsCard from "@/components/home/news-card";
 import StatCard from "@/components/home/stat-card";
 import { cn } from "@/lib/utils";
+import ImageSlider from "@/components/home/image-slider";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("umum");
@@ -126,7 +127,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-16 pb-24 overflow-hidden bg-gradient-to-b from-cyan-50 to-blue-100 dark:from-cyan-950 dark:to-blue-900">
+      <section className="relative min-h-screen flex items-center pt-16 pb-24 overflow-visible bg-gradient-to-b from-cyan-50 to-blue-100 dark:from-cyan-950 dark:to-blue-900">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 opacity-10 dark:opacity-20">
             <Image 
@@ -211,12 +212,7 @@ export default function Home() {
               >
                 <span className="relative">
                   Sistem Informasi
-                  <motion.div
-                    className="absolute -bottom-2 left-0 h-1 bg-cyan-500 dark:bg-cyan-400"
-                    initial={{ width: 0 }}
-                    animate={{ width: "100%" }}
-                    transition={{ delay: 0.6, duration: 0.8 }}
-                  />
+                 
                 </span>
                 <br />
                 Pengelolaan Air Limbah
@@ -265,23 +261,19 @@ export default function Home() {
             >
               <div className="relative aspect-square max-w-lg mx-auto">
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-cyan-300/30 to-blue-500/30 animate-pulse" />
+
                 <Image
-                  src="https://images.pexels.com/photos/1722181/pexels-photo-1722181.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                  src="/images/ilustration.svg"
                   alt="Water treatment"
-                  width={600}
-                  height={600}
-                  className="rounded-xl shadow-lg object-cover z-10 relative"
+                  width={400}
+                  height={400}
+                  className="rounded-full shadow-lg object-cover z-10 relative w-full h-full"
                 />
+
                 <motion.div
                   className="absolute -bottom-5 -right-5 w-24 h-24 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 shadow-lg"
-                  animate={{ 
-                    rotate: [0, 5, 0, -5, 0],
-                  }}
-                  transition={{ 
-                    repeat: Infinity,
-                    duration: 6,
-                    ease: "easeInOut"
-                  }}
+                  animate={{ rotate: [0, 5, 0, -5, 0] }}
+                  transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
                 >
                   <div className="w-full h-full flex items-center justify-center text-white">
                     <Droplets size={40} />
@@ -289,6 +281,7 @@ export default function Home() {
                 </motion.div>
               </div>
             </motion.div>
+
           </div>
         </div>
         
@@ -370,24 +363,8 @@ export default function Home() {
       <section className="py-20 bg-white dark:bg-background relative overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="relative"
-            >
-              <div className="relative aspect-square max-w-lg">
-                <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-200/50 to-blue-300/50 dark:from-cyan-900/50 dark:to-blue-800/50 blur-2xl" />
-                <Image
-                  src="https://images.pexels.com/photos/4254892/pexels-photo-4254892.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                  alt="Water treatment facility"
-                  width={600}
-                  height={600}
-                  className="rounded-lg shadow-xl relative z-10 object-cover"
-                />
-              </div>
-            </motion.div>
+            <ImageSlider />
+
 
             <motion.div
               initial={{ opacity: 0, x: 20 }}
@@ -408,7 +385,7 @@ export default function Home() {
                   <TabsTrigger value="visi">Visi & Misi</TabsTrigger>
                   <TabsTrigger value="manfaat">Manfaat</TabsTrigger>
                 </TabsList>
-                
+
                 <TabsContent value="umum" className="space-y-4">
                   <p className="text-lg text-muted-foreground">
                     UPTD Pengelolaan Air Limbah Domestik Kabupaten Tanah Bumbu adalah unit pelaksana
@@ -420,7 +397,7 @@ export default function Home() {
                     mewujudkan lingkungan yang bersih dan sehat bagi masyarakat.
                   </p>
                 </TabsContent>
-                
+
                 <TabsContent value="visi" className="space-y-4">
                   <div>
                     <h4 className="text-xl font-semibold mb-2 text-cyan-900 dark:text-cyan-50">Visi</h4>
@@ -439,7 +416,7 @@ export default function Home() {
                     </ul>
                   </div>
                 </TabsContent>
-                
+
                 <TabsContent value="manfaat" className="space-y-4">
                   <p className="text-lg text-muted-foreground mb-4">
                     Pengelolaan air limbah domestik yang baik memberikan berbagai manfaat penting:
@@ -475,7 +452,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* News & Announcements Section */}
       <section className="py-20 bg-cyan-50 dark:bg-cyan-950/50">
         <div className="container mx-auto px-4">
@@ -568,9 +544,8 @@ export default function Home() {
                 </Link>
               </Button>
               <Button
-                variant="outline"
                 size="lg"
-                className="border-white text-white hover:bg-white/10"
+                className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white"
                 asChild
               >
                 <Link href="/faq">

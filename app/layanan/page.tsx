@@ -22,9 +22,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { WaveDivider } from "@/components/ui/wave-divider";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 export default function LayananPage() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [tabValue, setTabValue] = useState("all");
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -128,6 +130,7 @@ export default function LayananPage() {
     service.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
     service.category.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
 
   return (
     <>
@@ -235,17 +238,38 @@ export default function LayananPage() {
       <section className="py-20 bg-white dark:bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <Tabs defaultValue="all" className="mb-12">
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-3xl font-bold text-cyan-900 dark:text-cyan-50">
-                  Layanan Utama
-                </h2>
-                <TabsList>
-                  <TabsTrigger value="all">Semua</TabsTrigger>
-                  <TabsTrigger value="pendaftaran">Pendaftaran</TabsTrigger>
-                  <TabsTrigger value="pengaduan">Pengaduan</TabsTrigger>
-                  <TabsTrigger value="pemeliharaan">Pemeliharaan</TabsTrigger>
-                </TabsList>
+            <Tabs value={tabValue} onValueChange={setTabValue} className="mb-12">
+              <div className="mb-6">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                  <h2 className="text-3xl font-bold text-cyan-900 dark:text-cyan-50">
+                    Layanan Utama
+                  </h2>
+
+                  {/* Mobile: Dropdown Select */}
+                  <div className="md:hidden w-full">
+                    <Select defaultValue="all" onValueChange={(value) => setTabValue(value)}>
+                      <SelectTrigger className="w-full bg-cyan-50 dark:bg-cyan-900 border-cyan-200 dark:border-cyan-800">
+                        <SelectValue placeholder="Pilih Kategori" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="all">Semua</SelectItem>
+                        <SelectItem value="pendaftaran">Pendaftaran</SelectItem>
+                        <SelectItem value="pengaduan">Pengaduan</SelectItem>
+                        <SelectItem value="pemeliharaan">Pemeliharaan</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  {/* Desktop: Traditional Tabs */}
+                  <div className="hidden md:block">
+                    <TabsList>
+                      <TabsTrigger value="all">Semua</TabsTrigger>
+                      <TabsTrigger value="pendaftaran">Pendaftaran</TabsTrigger>
+                      <TabsTrigger value="pengaduan">Pengaduan</TabsTrigger>
+                      <TabsTrigger value="pemeliharaan">Pemeliharaan</TabsTrigger>
+                    </TabsList>
+                  </div>
+                </div>
               </div>
 
               <TabsContent value="all">
@@ -305,8 +329,8 @@ export default function LayananPage() {
                   className="grid grid-cols-1 md:grid-cols-2 gap-6"
                 >
                   {filteredMainServices
-                    .filter((service) => 
-                      service.category === "Pemeliharaan" || 
+                    .filter((service) =>
+                      service.category === "Pemeliharaan" ||
                       service.category === "Penyedotan"
                     )
                     .map((service, index) => (
@@ -324,7 +348,7 @@ export default function LayananPage() {
             <h2 className="text-3xl font-bold mb-8 text-cyan-900 dark:text-cyan-50">
               Layanan Pendukung
             </h2>
-            
+
             <motion.div
               variants={containerVariants}
               initial="hidden"

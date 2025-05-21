@@ -125,7 +125,7 @@ export default function BeritaPage() {
                 />
               </div>
               <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-                <SelectTrigger className="w-full md:w-[200px] bg-white/90 border-0 rounded-full h-[56px]">
+                <SelectTrigger className="w-full md:w-[200px] border-cyan-600 text-cyan-700 hover:bg-cyan-50 dark:border-cyan-400 dark:text-cyan-300 dark:hover:bg-cyan-900/30 rounded-full h-[50px]">
                   <Filter className="h-5 w-5 mr-2" />
                   <SelectValue placeholder="Kategori" />
                 </SelectTrigger>

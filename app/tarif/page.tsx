@@ -3,11 +3,11 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { 
-  Calculator, 
-  Home, 
-  Building, 
-  Building2, 
+import {
+  Calculator,
+  Home,
+  Building,
+  Building2,
   CalculatorIcon,
   GraduationCap,
   Landmark,
@@ -19,7 +19,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Input } from "@/components/ui/input";
-import { 
+import {
   Select,
   SelectContent,
   SelectItem,
@@ -33,6 +33,7 @@ export default function TarifPage() {
   const [bangunan, setBangunan] = useState("rumah");
   const [volume, setVolume] = useState<number>(10);
   const [tarif, setTarif] = useState<number>(0);
+  const [tabValue, setTabValue] = useState("kategori");
 
   const tarifData = {
     rumah: 15000,
@@ -82,7 +83,7 @@ export default function TarifPage() {
             </motion.p>
           </div>
         </div>
-        
+
         <WaveDivider color="fill-white dark:fill-background" height={80} />
       </section>
 
@@ -90,16 +91,34 @@ export default function TarifPage() {
       <section className="py-20 bg-white dark:bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <Tabs defaultValue="kategori">
+            <Tabs value={tabValue} onValueChange={setTabValue} className="mb-12">
+
               <div className="mb-8 flex justify-between items-center flex-col md:flex-row gap-6">
                 <h2 className="text-3xl font-bold text-cyan-900 dark:text-cyan-50">
                   Struktur Tarif
                 </h2>
-                <TabsList className="bg-cyan-100 dark:bg-cyan-900/50">
-                  <TabsTrigger value="kategori">Berdasarkan Kategori</TabsTrigger>
-                  <TabsTrigger value="volume">Berdasarkan Volume</TabsTrigger>
-                  <TabsTrigger value="layanan">Tarif Layanan</TabsTrigger>
-                </TabsList>
+                {/* Mobile: Dropdown Select */}
+                <div className="md:hidden w-full">
+                  <Select defaultValue="kategori" onValueChange={(value) => setTabValue(value)}>
+                    <SelectTrigger className="w-full bg-cyan-50 dark:bg-cyan-900/50">
+                      <SelectValue placeholder="Pilih Kategori" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="kategori">Berdasarkan Kategori</SelectItem>
+                      <SelectItem value="volume">Berdasarkan Volume</SelectItem>
+                      <SelectItem value="layanan">Tarif Layanan</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                {/* Desktop: Traditional Tabs */}
+                <div className="hidden md:block">
+                  <TabsList className="bg-cyan-100 dark:bg-cyan-900/50">
+                    <TabsTrigger value="kategori">Berdasarkan Kategori</TabsTrigger>
+                    <TabsTrigger value="volume">Berdasarkan Volume</TabsTrigger>
+                    <TabsTrigger value="layanan">Tarif Layanan</TabsTrigger>
+                  </TabsList>
+                </div>
+
               </div>
 
               <TabsContent value="kategori">
@@ -300,19 +319,61 @@ export default function TarifPage() {
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="rumah" className="flex items-center">
-                          <Home className="mr-2 h-4 w-4" /> Rumah Tangga
+                          <div className="flex items-center">
+                            <span>
+
+                              <Home className="mr-2 h-4 w-4" />
+                            </span>
+                            <span>
+                              Rumah Tangga
+                            </span>
+                          </div>
                         </SelectItem>
                         <SelectItem value="ruko">
-                          <Building2 className="mr-2 h-4 w-4" /> Komersial Kecil
+                          <div className="flex items-center">
+                            <span>
+                              <Building2 className="mr-2 h-4 w-4" />
+                            </span>
+                            <span>
+                              Komersial Kecil
+                            </span>
+                          </div>
                         </SelectItem>
                         <SelectItem value="hotel">
-                          <Building className="mr-2 h-4 w-4" /> Komersial Besar
+                          <div className="flex items-center">
+                            <span>
+
+                              <Building className="mr-2 h-4 w-4" />
+                            </span>
+                            <span>
+                              Komersial Besar
+
+                            </span>
+                          </div>
                         </SelectItem>
                         <SelectItem value="institusi">
-                          <GraduationCap className="mr-2 h-4 w-4" /> Institusi
+                          <div className="flex items-center">
+                            <span>
+
+                              <GraduationCap className="mr-2 h-4 w-4" />
+                            </span>
+                            <span>
+
+                              Institusi
+                            </span>
+                          </div>
                         </SelectItem>
                         <SelectItem value="komersial">
-                          <Landmark className="mr-2 h-4 w-4" /> Fasilitas Umum
+                          <div className="flex items-center">
+                            <span>
+
+                              <Landmark className="mr-2 h-4 w-4" />
+                            </span>
+                            <span>
+                              Fasilitas Umum
+
+                            </span>
+                          </div>
                         </SelectItem>
                       </SelectContent>
                     </Select>
@@ -329,8 +390,8 @@ export default function TarifPage() {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button 
-                    onClick={handleCalculate} 
+                  <Button
+                    onClick={handleCalculate}
                     className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white"
                   >
                     Hitung Estimasi
@@ -516,7 +577,7 @@ export default function TarifPage() {
                   <AccordionTrigger>Bagaimana cara pembayaran tarif layanan?</AccordionTrigger>
                   <AccordionContent>
                     <p className="text-muted-foreground">
-                      Pembayaran dapat dilakukan melalui transfer bank, pembayaran langsung di kantor UPTD, 
+                      Pembayaran dapat dilakukan melalui transfer bank, pembayaran langsung di kantor UPTD,
                       atau melalui aplikasi mobile banking dan e-wallet yang telah bekerja sama dengan kami.
                       Untuk informasi lebih lanjut, silakan lihat bagian Informasi Pembayaran di atas.
                     </p>
@@ -526,8 +587,8 @@ export default function TarifPage() {
                   <AccordionTrigger>Apakah ada subsidi untuk masyarakat kurang mampu?</AccordionTrigger>
                   <AccordionContent>
                     <p className="text-muted-foreground">
-                      Ya, UPTD menyediakan program subsidi untuk masyarakat kurang mampu. 
-                      Untuk mengajukan subsidi, silakan membawa Kartu Keluarga, KTP, dan Surat Keterangan 
+                      Ya, UPTD menyediakan program subsidi untuk masyarakat kurang mampu.
+                      Untuk mengajukan subsidi, silakan membawa Kartu Keluarga, KTP, dan Surat Keterangan
                       Tidak Mampu dari kelurahan/desa setempat ke kantor UPTD untuk diproses lebih lanjut.
                     </p>
                   </AccordionContent>
@@ -536,8 +597,8 @@ export default function TarifPage() {
                   <AccordionTrigger>Bagaimana jika terjadi keterlambatan pembayaran?</AccordionTrigger>
                   <AccordionContent>
                     <p className="text-muted-foreground">
-                      Keterlambatan pembayaran akan dikenakan denda sebesar 5% dari total tagihan. 
-                      Jika keterlambatan melebihi 3 bulan berturut-turut, layanan dapat dihentikan 
+                      Keterlambatan pembayaran akan dikenakan denda sebesar 5% dari total tagihan.
+                      Jika keterlambatan melebihi 3 bulan berturut-turut, layanan dapat dihentikan
                       sementara hingga pelanggan melunasi seluruh tunggakan.
                     </p>
                   </AccordionContent>
@@ -546,8 +607,8 @@ export default function TarifPage() {
                   <AccordionTrigger>Apakah tarif dapat berubah?</AccordionTrigger>
                   <AccordionContent>
                     <p className="text-muted-foreground">
-                      Ya, tarif dapat berubah sesuai dengan kebijakan pemerintah daerah dan biaya 
-                      operasional pengelolaan air limbah. Setiap perubahan tarif akan diinformasikan 
+                      Ya, tarif dapat berubah sesuai dengan kebijakan pemerintah daerah dan biaya
+                      operasional pengelolaan air limbah. Setiap perubahan tarif akan diinformasikan
                       kepada pelanggan minimal 3 bulan sebelum diberlakukan.
                     </p>
                   </AccordionContent>
@@ -556,8 +617,8 @@ export default function TarifPage() {
                   <AccordionTrigger>Bagaimana cara mengajukan keberatan atas tagihan yang tidak sesuai?</AccordionTrigger>
                   <AccordionContent>
                     <p className="text-muted-foreground">
-                      Pelanggan dapat mengajukan keberatan atas tagihan dengan mengisi formulir pengaduan 
-                      yang tersedia di kantor UPTD atau melalui website SIPALID. Tim kami akan melakukan 
+                      Pelanggan dapat mengajukan keberatan atas tagihan dengan mengisi formulir pengaduan
+                      yang tersedia di kantor UPTD atau melalui website SIPALID. Tim kami akan melakukan
                       verifikasi dan memberikan respons dalam waktu maksimal 7 hari kerja.
                     </p>
                   </AccordionContent>

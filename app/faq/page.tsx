@@ -246,10 +246,9 @@ export default function FAQPage() {
                 </Link>
               </Button>
               <Button
-                variant="outline"
                 size="lg"
-                className="border-white text-white hover:bg-white/10"
-                asChild
+                className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white"
+                 asChild
               >
                 <Link href="/layanan">
                   Lihat Layanan
