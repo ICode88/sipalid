@@ -9,7 +9,7 @@ import { Toaster } from '@/components/ui/toaster';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'SIPALID - Sistem Informasi Pengelolaan Air Limbah Domestik',
+  title: 'SIPALD - Sistem Informasi Pengelolaan Air Limbah Domestik',
   description: 'Sistem Informasi Pengelolaan Air Limbah Domestik Kabupaten Tanah Bumbu',
 };
 

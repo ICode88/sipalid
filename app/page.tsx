@@ -215,7 +215,7 @@ export default function Home() {
                  
                 </span>
                 <br />
-                Pengelolaan Air Limbah
+                Pengelolaan Air Limbah Domestik (SIPALD)
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0 }}
@@ -223,8 +223,7 @@ export default function Home() {
                 transition={{ delay: 0.4, duration: 0.5 }}
                 className="text-lg md:text-xl text-cyan-800 dark:text-cyan-200 mb-8 max-w-xl mx-auto lg:mx-0"
               >
-                Informasi lengkap tentang layanan pengelolaan air limbah domestik
-                di Kabupaten Tanah Bumbu untuk masyarakat yang lebih sehat.
+                Cepat, Tepat, dan Berkelanjutan.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}

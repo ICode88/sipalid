@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <Droplets size={24} />
-              <span className="font-bold text-xl">SIPALID</span>
+              <span className="font-bold text-xl">SIPALD</span>
             </div>
             <p className="text-cyan-100 text-sm mt-2">
               Sistem Informasi Pengelolaan Air Limbah Domestik Kabupaten Tanah Bumbu.
@@ -102,7 +102,7 @@ export default function Footer() {
               </li>
               <li className="flex gap-3">
                 <Mail size={20} className="flex-shrink-0 text-cyan-300" />
-                <span>info@sipalid-tanbu.go.id</span>
+                <span>info@sipald-tanbu.go.id</span>
               </li>
             </ul>
           </div>
@@ -110,7 +110,7 @@ export default function Footer() {
 
         <div className="border-t border-cyan-800 mt-12 pt-6 text-sm text-cyan-200">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p>© 2025 SIPALID - UPTD Pengelolaan Air Limbah Domestik Kab. Tanah Bumbu</p>
+            <p>© 2025 SIPALD - UPTD Pengelolaan Air Limbah Domestik Kab. Tanah Bumbu</p>
             <div className="flex gap-6">
               <Link href="/kebijakan-privasi" className="hover:text-cyan-300 transition-colors">
                 Kebijakan Privasi

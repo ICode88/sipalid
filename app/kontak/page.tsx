@@ -142,7 +142,7 @@ export default function KontakPage() {
                     </div>
                     <div className="ml-4">
                       <h3 className="font-semibold mb-1">Email</h3>
-                      <p className="text-muted-foreground">info@sipalid-tala.go.id</p>
+                      <p className="text-muted-foreground">info@sipald-tala.go.id</p>
                     </div>
                   </div>
 

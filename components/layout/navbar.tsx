@@ -57,7 +57,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
             >
-              SIPALID
+              SIPALD
             </motion.span>
           </Link>
 

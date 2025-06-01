@@ -30,7 +30,7 @@ const faqCategories = [
       },
       {
         q: "Bagaimana cara menghubungi UPTD?",
-        a: "Anda dapat menghubungi kami melalui:\n- Telepon: (0518) 12345678\n- Email: info@sipalid-tala.go.id\n- Kunjungan langsung ke kantor UPTD\n- Formulir kontak di website ini"
+        a: "Anda dapat menghubungi kami melalui:\n- Telepon: (0518) 12345678\n- Email: info@sipald-tala.go.id\n- Kunjungan langsung ke kantor UPTD\n- Formulir kontak di website ini"
       }
     ]
   },

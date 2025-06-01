@@ -70,7 +70,7 @@ const timeline = [
   {
     year: "2025",
     title: "Digitalisasi Layanan",
-    description: "Peluncuran platform digital SIPALID untuk pelayanan masyarakat."
+    description: "Peluncuran platform digital SIPALD untuk pelayanan masyarakat."
   }
 ];
 

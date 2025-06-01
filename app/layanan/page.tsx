@@ -201,7 +201,7 @@ export default function LayananPage() {
               transition={{ duration: 0.5 }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
             >
-              Layanan UPTD Pengelolaan Air Limbah
+              Layanan UPTD Pengelolaan Air Limbah Domestik
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 10 }}

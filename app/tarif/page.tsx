@@ -515,7 +515,7 @@ export default function TarifPage() {
                         <ol className="list-decimal list-inside space-y-2 text-muted-foreground">
                           <li>Tagihan dikirimkan secara elektronik melalui email terdaftar pada awal bulan.</li>
                           <li>Notifikasi tagihan juga dikirimkan melalui SMS ke nomor telepon terdaftar.</li>
-                          <li>Pelanggan dapat mengunduh tagihan di website SIPALID dengan memasukkan ID Pelanggan.</li>
+                          <li>Pelanggan dapat mengunduh tagihan di website SIPALD dengan memasukkan ID Pelanggan.</li>
                           <li>Bukti pembayaran harus disimpan sebagai referensi jika terjadi masalah.</li>
                         </ol>
                       </AccordionContent>
@@ -528,7 +528,7 @@ export default function TarifPage() {
                         </p>
                         <ul className="list-disc list-inside space-y-1 text-muted-foreground">
                           <li>Customer Service: (0518) 12345678</li>
-                          <li>Email: pembayaran@sipalid-tala.go.id</li>
+                          <li>Email: pembayaran@sipald-tala.go.id</li>
                           <li>Kunjungan langsung ke kantor UPTD</li>
                         </ul>
                         <p className="text-muted-foreground mt-2">
@@ -618,7 +618,7 @@ export default function TarifPage() {
                   <AccordionContent>
                     <p className="text-muted-foreground">
                       Pelanggan dapat mengajukan keberatan atas tagihan dengan mengisi formulir pengaduan
-                      yang tersedia di kantor UPTD atau melalui website SIPALID. Tim kami akan melakukan
+                      yang tersedia di kantor UPTD atau melalui website SIPALD. Tim kami akan melakukan
                       verifikasi dan memberikan respons dalam waktu maksimal 7 hari kerja.
                     </p>
                   </AccordionContent>
