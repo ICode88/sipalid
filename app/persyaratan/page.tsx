@@ -166,9 +166,7 @@ export default function PersyaratanPage() {
                 <div className="container mx-auto px-4">
                     <div className="max-w-6xl mx-auto">
                         <Tabs value={activeTab} onValueChange={setActiveTab} className="mb-12">
-                            <div className="flex justify-center mb-12">
-
-                            </div>
+                            <div className="flex justify-center items-center mb-12">
                             {/* Mobile: Dropdown Select */}
                             <div className="md:hidden w-full">
                                 <Select defaultValue="persyaratan" onValueChange={(value) => setActiveTab(value)}>
@@ -190,6 +188,8 @@ export default function PersyaratanPage() {
                                     <TabsTrigger value="proses">Proses Pendaftaran</TabsTrigger>
                                     <TabsTrigger value="bantuan">Bantuan & Tips</TabsTrigger>
                                 </TabsList>
+                            </div>
+
                             </div>
 
                             <TabsContent value="persyaratan">
